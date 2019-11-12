@@ -130,3 +130,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 SESSION_COOKIE_NAME = 'cliente_suap_django'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
