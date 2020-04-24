@@ -12,6 +12,7 @@ def index(request):
     return render(request, 'index.html', {})
 
 
-@login_required
 def profile(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/')
     return render(request, 'profile.html', {})
