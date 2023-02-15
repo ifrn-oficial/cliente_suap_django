@@ -1,3 +1,3 @@
-Django==3.2.4
+Django==3.2.18
 social-auth-app-django==4.0.0
 social-auth-core==4.1.0
