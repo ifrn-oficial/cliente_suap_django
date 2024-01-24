@@ -55,7 +55,7 @@ A aplicação `app` foi criada como modelo e possui três URLs:
 
 - **Login:** <http://127.0.0.1:8000/login/>;
 - **Logout:** <http://127.0.0.1:8000/logout/>;
-- **Perfil:** <http://127.0.0.1:8000/accounts/profile/>;
+- **Perfil:** <http://127.0.0.1:8000/accounts/profile/>.
 
 Ao fazer o login, o usuário será redirecionado para o perfil, onde todos os seus dados são exibidos. E quando o logout é realizado, a autenticação do usuário é removida e ele é redirecionado para a página de login.
 
