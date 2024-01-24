@@ -34,9 +34,9 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Duplique o arquivo `.env.example` e renomeie a cópia para `.env`. Agora, configura corretamente as variáveis de ambiente no arquivo.
+Duplique o arquivo `.env.example` e renomeie a cópia para `.env`. Agora, configure corretamente as variáveis de ambiente no arquivo.
 
-Os valores das variáveis `SOCIAL_AUTH_SUAP_KEY` e `SOCIAL_AUTH_SUAP_SECRET` são disponibilizadas ao criar a aplicação no SUAP.
+Os valores das variáveis `SOCIAL_AUTH_SUAP_KEY` e `SOCIAL_AUTH_SUAP_SECRET` são disponibilizados ao criar a aplicação no SUAP.
 
 Feito isso, aplique as migrações, colete os arquivos estáticos e rode a aplicação:
 
@@ -51,7 +51,7 @@ Abra o navegador em <http://127.0.0.1:8000/>.
 
 ### Exemplo
 
-A aplicação Django `app`, criada como modelo, foi criada como exemplo e possui três URLs:
+A aplicação `app` foi criada como modelo e possui três URLs:
 
 - **Login:** <http://127.0.0.1:8000/login/>;
 - **Logout:** <http://127.0.0.1:8000/logout/>;
