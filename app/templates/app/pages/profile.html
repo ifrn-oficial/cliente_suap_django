@@ -16,4 +16,15 @@
   <p><b>Sexo:</b> {{ usuario.sexo }}</p>
   <p><b>Tipo de vínculo:</b> {{ usuario.tipo_vinculo }}</p>
   <p><b>Data de nascimento:</b> {{ usuario.data_nascimento }}</p>
+  <form id="formulario-sair" action="{% url "app:logout" %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Sair</button>
+  </form>
+  <script>
+    document.getElementById('formulario-sair').addEventListener('submit', function(e) {
+      e.preventDefault()
+      window.location.href = 'https://suap.ifrn.edu.br/accounts/logout/'
+      this.submit()
+    })
+  </script>
 {% endblock content %}

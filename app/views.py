@@ -1,3 +1,4 @@
+from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -28,3 +29,9 @@ def profile(request):
             'usuario': usuario
         }
     )
+
+
+@login_required(login_url='/login/')
+def logout(request):
+    auth_logout(request)
+    return redirect(reverse('app:login'))
