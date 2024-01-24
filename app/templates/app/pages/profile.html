@@ -1,0 +1,19 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+  <h1>Perfil</h1>
+  <img src="{{ usuario.url_foto }}" width="150" alt="Foto do usuário.">
+  <p><b>Matrícula:</b> {{ usuario.matricula }}</p>
+  <p><b>Nome completo:</b> {{ usuario.nome_completo }}</p>
+  <p><b>Primeiro nome:</b> {{ usuario.primeiro_nome }}</p>
+  <p><b>Último nome:</b> {{ usuario.ultimo_nome }}</p>
+  <p><b>CPF:</b> {{ usuario.cpf }}</p>
+  <p><b>Campus:</b> {{ usuario.campus }}</p>
+  <p><b>Curso:</b> {{ usuario.curso }}</p>
+  <p><b>E-mail pessoal:</b> {{ usuario.email_pessoal }}</p>
+  <p><b>E-mail escolar:</b> {{ usuario.email_escolar }}</p>
+  <p><b>E-mail acadêmico:</b> {{ usuario.email_academico }}</p>
+  <p><b>Sexo:</b> {{ usuario.sexo }}</p>
+  <p><b>Tipo de vínculo:</b> {{ usuario.tipo_vinculo }}</p>
+  <p><b>Data de nascimento:</b> {{ usuario.data_nascimento }}</p>
+{% endblock content %}
