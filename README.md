@@ -47,7 +47,7 @@ python manage.py collectstatic
 python manage.py runserver
 ```
 
-Abra o navegador em <http://127.0.0.1:8000/>.
+Abra o navegador em <http://127.0.0.1:8000/login/>.
 
 ### Exemplo
 
