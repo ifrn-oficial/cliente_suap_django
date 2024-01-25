@@ -1,38 +1,62 @@
 # Cliente SUAP Django
 
+![Django 5.0.1](https://img.shields.io/badge/Django-5.0.1-brightgreen)
+![Python 3.12.1](https://img.shields.io/badge/Python-3.12.1-blue)
+
 ## Sobre
 
-O **Cliente SUAP Django** implementa a integração com o SUAP, tendo 2 principais funcionalidades:
+O Cliente SUAP Django implementa a integração com o SUAP, tendo 2 principais funcionalidades:
 
-- Logar com SUAP via OAuth2
-- Consumir API (via OAuth2) obtendo recursos em nome do usuário
+- Logar com SUAP via OAuth2;
+- Consumir API via OAuth2 obtendo recursos em nome do usuário.
 
-## QuickStart
+## Utilização
 
-### Crie sua Aplicação no SUAP
+### Criação da Aplicação no SUAP
 
-Crie sua aplicação em https://suap.ifrn.edu.br/api/ com as seguintes informações:
+Crie sua aplicação em <https://suap.ifrn.edu.br/admin/api/aplicacaooauth2/> com as seguintes informações:
 
-- **Client Type:** Confidential
-- **Authorization Grant Type:** Authorization Code
-- **Redicert URIs**: http://localhost:8888/complete/suap/
+- **Authorization Grant Type:** Authorization Code;
+- **Redirect URIs:** <http://127.0.0.1:8000/complete/suap/>;
+- **Client Type:** Confidential.
 
-### Instalando, Configurando e Rodando o Cliente SUAP Django
+Em **Redirect URIs** você também pode adicionar o endereço do servidor externo, caso ele esteja rodando na nuvem. No valor definido acima, o servidor está rodando localmente (localhost).
 
-Considerando que você já tenha clonado o repositório **cliente_suap_django** e instalado o PIP (https://pip.pypa.io/en/stable/installing/), abra o terminal:
+### Instalação e Configuração
 
-	pip install -U virtualenv virtualenvwrapper
-	cd cliente_suap_django
-	mkvirtualenv cliente_suap_django
-	workon cliente_suap_django
-	pip install -r requirements.txt
-	./manage.py migrate
-	cp cliente_suap_django/local_settings_sample.py cliente_suap_django/local_settings.py
+Clone o repositório para a máquina, crie um ambiente virtual e instale as dependências:
 
-Faça os ajustes necessários, definindo as variáveis `SOCIAL_AUTH_SUAP_KEY` e `SOCIAL_AUTH_SUAP_SECRET` no **local_settings.py**.
+```bash
+git clone https://github.com/sergiodantasz/cliente-suap-django.git
+cd cliente-suap-django
+python3.12 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
-Rode a aplicação cliente:
+Duplique o arquivo `.env.example` e renomeie a cópia para `.env`. Agora, configure corretamente as variáveis de ambiente no arquivo.
 
-	./manage.py runserver 0.0.0.0:8888
+Os valores das variáveis `SOCIAL_AUTH_SUAP_KEY` e `SOCIAL_AUTH_SUAP_SECRET` são disponibilizados ao criar a aplicação no SUAP.
 
-Abra seu browser em http://localhost:8888/
+Feito isso, aplique as migrações, colete os arquivos estáticos e rode a aplicação:
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+python manage.py collectstatic
+python manage.py runserver
+```
+
+Abra o navegador em <http://127.0.0.1:8000/login/>.
+
+### Exemplo
+
+A aplicação `app` foi criada como modelo e possui três URLs:
+
+- **Login:** <http://127.0.0.1:8000/login/>;
+- **Logout:** <http://127.0.0.1:8000/logout/>;
+- **Perfil:** <http://127.0.0.1:8000/accounts/profile/>.
+
+Ao fazer o login, o usuário será redirecionado para o perfil, onde todos os seus dados são exibidos. E quando o logout é realizado, a autenticação do usuário é removida e ele é redirecionado para a página de login.
+
+Observe a estruturação desse exemplo e replique no seu projeto de forma que ele se adapte à sua configuração de maneira adequada.
